@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name BookeeyPaySDK
 @_exported import BookeeyPaySDK
 import CommonCrypto
@@ -16,6 +16,11 @@ import WebKit
   @objc public var environMent: BookeeyPaySDK.SDKEnvironment
   @objc public var delegate: BookeeyPaySDK.BookeeyPayDelegate?
   @objc public var payLoadRequest: BookeeyPaySDK.PayloadRequestModel?
+  @objc public var themeColor: UIKit.UIColor?
+  @objc public var tintColor: UIKit.UIColor?
+  @objc public var cancelButtonTitle: Swift.String?
+  @objc public var alertButtonTitle: Swift.String?
+  @objc public var headerTitle: Swift.String?
   @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel)
   @objc override dynamic public func viewDidLoad()
   @objc public func getCurrentMilliSecs() -> Swift.Int
@@ -63,7 +68,7 @@ public class SDKModel {
   @objc final public let merchantCommission: Swift.String?
   @objc final public let paymentGateway: Swift.String
   @objc final public let paymentToMerchant: Swift.String?
-  @objc final public let errorMsg: Swift.String
+  @objc final public let errorMsg: Swift.String?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
