@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "BookeeyPaySDK"
-  spec.version      = "1.1.0"
+  spec.version      = "1.2.0"
   spec.summary      = "BookeeyPay hassle free iOS payment SDK"
 
   spec.description  = <<-DESC
@@ -21,8 +21,6 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT" }
 
   spec.author             = { "RizwaniOS" => "m.rizwan@xenon4pay.com" }
-spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
    spec.platform     = :ios
     spec.platform     = :ios, "9.0"
 
