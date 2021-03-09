@@ -225,31 +225,42 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK12AppInfoModel")
 @end
 
 
-SWIFT_CLASS("_TtC13BookeeyPaySDK19BookeeyFailResponse")
-@interface BookeeyFailResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
+SWIFT_CLASS("_TtC13BookeeyPaySDK20BookeeyErrorResponse")
+@interface BookeeyErrorResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchantTxnId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorMessage;
-@property (nonatomic, readonly, copy) NSString * _Nonnull transationTime;
-@property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class BookeeyTransactionResponse;
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK19BookeeyFailResponse")
+@interface BookeeyFailResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchantTxnId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorMessage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class BookeeySuccessResponse;
 
 SWIFT_PROTOCOL("_TtP13BookeeyPaySDK18BookeeyPayDelegate_")
 @protocol BookeeyPayDelegate
-- (void)paymentSuccessCallBackWithTransactionData:(BookeeyTransactionResponse * _Nonnull)transactionData;
+- (void)paymentSuccessCallBackWithTransactionData:(BookeeySuccessResponse * _Nonnull)transactionData;
 - (void)paymentFailueCallBackWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
-- (void)paymentCancelWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
+- (void)paymentCancelWithTransactionFailureData:(BookeeyErrorResponse * _Nonnull)transactionFailureData;
 @end
 
 
-SWIFT_CLASS("_TtC13BookeeyPaySDK26BookeeyTransactionResponse")
-@interface BookeeyTransactionResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull paymentReferenceId;
+SWIFT_CLASS("_TtC13BookeeyPaySDK22BookeeySuccessResponse")
+@interface BookeeySuccessResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchantTxnId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull transationTime;
+@property (nonatomic, readonly, copy) NSString * _Nonnull transactionMessage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -259,8 +270,8 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK17MerchantInfoModel")
 @interface MerchantInfoModel : NSObject
 @property (nonatomic, copy) NSString * _Nonnull MerchUID;
 @property (nonatomic, copy) NSString * _Nonnull BKY_PRDENUM;
-@property (nonatomic, copy) NSString * _Nonnull FURL;
 @property (nonatomic, copy) NSString * _Nonnull SURL;
+@property (nonatomic, copy) NSString * _Nonnull FURL;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

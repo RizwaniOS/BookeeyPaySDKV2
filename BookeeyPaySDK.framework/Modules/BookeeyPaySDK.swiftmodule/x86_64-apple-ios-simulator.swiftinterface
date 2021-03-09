@@ -8,9 +8,9 @@ import Swift
 import UIKit
 import WebKit
 @objc public protocol BookeeyPayDelegate {
-  @objc func paymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeyTransactionResponse)
+  @objc func paymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySuccessResponse)
   @objc func paymentFailueCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
-  @objc func paymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
+  @objc func paymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyErrorResponse)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class PaymentViewController : UIKit.UIViewController {
   @objc public var environMent: BookeeyPaySDK.SDKEnvironment
@@ -48,18 +48,26 @@ public class SDKModel {
   public func printnnn()
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyTransactionResponse : ObjectiveC.NSObject {
-  @objc final public let paymentReferenceId: Swift.String
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySuccessResponse : ObjectiveC.NSObject {
+  @objc final public let merchantTxnId: Swift.String
   @objc final public let transactionId: Swift.String
-  @objc final public let transationTime: Swift.String
+  @objc final public let transactionMessage: Swift.String
+  @objc final public let errorCode: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyErrorResponse : ObjectiveC.NSObject {
+  @objc final public let merchantTxnId: Swift.String
+  @objc final public let errorMessage: Swift.String
+  @objc final public let errorCode: Swift.String
   @objc deinit
   @objc override dynamic public init()
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyFailResponse : ObjectiveC.NSObject {
-  @objc final public let errorCode: Swift.String
-  @objc final public let errorMessage: Swift.String
-  @objc final public let transationTime: Swift.String
+  @objc final public let merchantTxnId: Swift.String
   @objc final public let transactionId: Swift.String
+  @objc final public let errorMessage: Swift.String
+  @objc final public let errorCode: Swift.String
   @objc deinit
   @objc override dynamic public init()
 }
@@ -105,8 +113,8 @@ public class SDKModel {
 @objc @_inheritsConvenienceInitializers @objcMembers public class MerchantInfoModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var MerchUID: Swift.String
   @objc public var BKY_PRDENUM: Swift.String
-  @objc public var FURL: Swift.String
   @objc public var SURL: Swift.String
+  @objc public var FURL: Swift.String
   @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit
