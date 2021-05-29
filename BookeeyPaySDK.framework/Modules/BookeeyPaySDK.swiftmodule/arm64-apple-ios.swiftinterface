@@ -9,19 +9,34 @@ import UIKit
 import WebKit
 @objc public protocol BookeeyPayDelegate {
   @objc func paymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySuccessResponse)
-  @objc func paymentFailueCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
+  @objc func paymentFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
   @objc func paymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyErrorResponse)
+}
+@objc public protocol BookeeyLoadWalletDelegate {
+  @objc func loadWalletSuccessCallBack(transactionData: BookeeyPaySDK.BookeeyLoadWalletSuccessResponse)
+  @objc func loadWalletFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeyLoadWalletFailResponse)
+  @objc func loadWalletPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyLoadWalletErrorResponse)
+}
+@objc public protocol BookeeySplitPaymentDelegate {
+  @objc func splitPaymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySplitPaymentSuccessResponse)
+  @objc func splitPaymentFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeySplitPaymentFailResponse)
+  @objc func splitPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeySplitPaymentErrorResponse)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class PaymentViewController : UIKit.UIViewController {
   @objc public var environMent: BookeeyPaySDK.SDKEnvironment
-  @objc public var delegate: BookeeyPaySDK.BookeeyPayDelegate?
+  @objc public var sdkApiRequestType: BookeeyPaySDK.SDKApiRequestType
+  @objc public var payDelegate: BookeeyPaySDK.BookeeyPayDelegate?
+  @objc public var loadWalletDelegate: BookeeyPaySDK.BookeeyLoadWalletDelegate?
+  @objc public var splitPaymentDelegate: BookeeyPaySDK.BookeeySplitPaymentDelegate?
   @objc public var payLoadRequest: BookeeyPaySDK.PayloadRequestModel?
+  @objc public var loadWalletRequest: BookeeyPaySDK.LoadWalletRequestModel?
+  @objc public var splitPaymentRequest: BookeeyPaySDK.SplitPaymentRequestModel?
   @objc public var themeColor: UIKit.UIColor?
   @objc public var tintColor: UIKit.UIColor?
   @objc public var cancelButtonTitle: Swift.String?
   @objc public var alertButtonTitle: Swift.String?
   @objc public var headerTitle: Swift.String?
-  @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel)
+  @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel? = nil, loadWalletModel: BookeeyPaySDK.LoadWalletRequestModel? = nil, splitPaymentModel: BookeeyPaySDK.SplitPaymentRequestModel? = nil)
   @objc override dynamic public func viewDidLoad()
   @objc public func getCurrentMilliSecs() -> Swift.Int
   @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
@@ -37,6 +52,16 @@ extension PaymentViewController : WebKit.WKNavigationDelegate {
 @objc public enum SDKEnvironment : Swift.Int {
   case test
   case live
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum SDKApiRequestType : Swift.Int {
+  case loadWallet
+  case paySdk
+  case splitPayment
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
@@ -63,6 +88,62 @@ public class SDKModel {
   @objc deinit
   @objc override dynamic public init()
 }
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySplitPaymentErrorResponse : ObjectiveC.NSObject {
+  @objc final public let merchTxnUId: Swift.String
+  @objc final public let trackUID: Swift.String
+  @objc final public let errorCD: Swift.String
+  @objc final public let errorDesc: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySplitPaymentFailResponse : ObjectiveC.NSObject {
+  @objc final public let trackUID: Swift.String
+  @objc final public let pGRef: Swift.String
+  @objc final public let payStat: Swift.String
+  @objc final public let errorDesc: Swift.String
+  @objc final public let merchTxnUId: Swift.String
+  @objc final public let errorCD: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySplitPaymentSuccessResponse : ObjectiveC.NSObject {
+  @objc final public let trackUID: Swift.String
+  @objc final public let pGRef: Swift.String
+  @objc final public let payStat: Swift.String
+  @objc final public let errorDesc: Swift.String
+  @objc final public let merchTxnUId: Swift.String
+  @objc final public let errorCD: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyLoadWalletErrorResponse : ObjectiveC.NSObject {
+  @objc final public let merchTxnUId: Swift.String
+  @objc final public let trackUID: Swift.String
+  @objc final public let errorCD: Swift.String
+  @objc final public let errorDesc: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyLoadWalletFailResponse : ObjectiveC.NSObject {
+  @objc final public let trackUID: Swift.String
+  @objc final public let pGRef: Swift.String
+  @objc final public let payStat: Swift.String
+  @objc final public let errorDesc: Swift.String
+  @objc final public let merchTxnUId: Swift.String
+  @objc final public let errorCD: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyLoadWalletSuccessResponse : ObjectiveC.NSObject {
+  @objc final public let trackUID: Swift.String
+  @objc final public let pGRef: Swift.String
+  @objc final public let payStat: Swift.String
+  @objc final public let errorDesc: Swift.String
+  @objc final public let merchTxnUId: Swift.String
+  @objc final public let errorCD: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
 @objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyFailResponse : ObjectiveC.NSObject {
   @objc final public let merchantTxnId: Swift.String
   @objc final public let transactionId: Swift.String
@@ -81,6 +162,31 @@ public class SDKModel {
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+public class LoadWalletApiResponse : Swift.Codable {
+  final public let data: BookeeyPaySDK.LoadWallet?
+  final public let isSuccess: Swift.Bool?
+  @objc final public let message: Swift.String?
+  @objc final public let sessionToken: Swift.String?
+  @objc final public let totalRecord: Swift.String?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class LoadWallet : Swift.Codable {
+  final public let loadWalletResponse: BookeeyPaySDK.LoadWalletResponse?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class LoadWalletResponse : Swift.Codable {
+  @objc final public let paymentUrl: Swift.String?
+  @objc final public let errorMessage: Swift.String?
+  @objc final public let paymentGateway: Swift.String?
+  @objc final public let walletKey: Swift.String?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
 @objc @_inheritsConvenienceInitializers @objcMembers public class PayloadRequestModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var DBRqst: Swift.String
   @objc public var Do_Appinfo: BookeeyPaySDK.AppInfoModel
@@ -88,6 +194,37 @@ public class SDKModel {
   @objc public var Do_PyrDtl: BookeeyPaySDK.PayerInfoModel
   @objc public var Do_TxnDtl: [BookeeyPaySDK.TransactionDetailModel]
   @objc public var Do_TxnHdr: BookeeyPaySDK.TransactionHdrModel
+  @objc public var Do_MoreDtl: BookeeyPaySDK.MoreDetail
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class LoadWalletRequestModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var DBRqst: Swift.String
+  @objc public var Do_Appinfo: BookeeyPaySDK.AppInfoModel
+  @objc public var Do_MerchAuth: BookeeyPaySDK.MerchantAuthModel
+  @objc public var Do_Dvcinfo: BookeeyPaySDK.DeviceInfoModel
+  @objc public var Do_TxnDtl: BookeeyPaySDK.LoadTransactionDetailModel
+  @objc public var Do_UsrDtl: BookeeyPaySDK.UserDetailInfoModel
+  @objc public var Do_WltDtl: BookeeyPaySDK.WalletKeyInfoModel
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class SplitPaymentRequestModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var Do_Appinfo: BookeeyPaySDK.AppInfoModel
+  @objc public var Do_Dvcinfo: BookeeyPaySDK.DeviceInfoModel
+  @objc public var Do_TxnHdr: BookeeyPaySDK.SplitPaymentTransactionHdrModel
+  @objc public var Do_TxnDtl: [BookeeyPaySDK.SplitPaymentTransactionDetailModel]
+  @objc public var Do_MerchDtl: BookeeyPaySDK.MerchantInfoModel
+  @objc public var Do_PyrDtl: BookeeyPaySDK.PayerInfoModel
+  @objc public var Do_MerchAuth: BookeeyPaySDK.MerchantAuthModel
+  @objc public var Do_MoreDtl: BookeeyPaySDK.MoreDetail
+  @objc public var Do_UsrAuth: BookeeyPaySDK.UsrAuthModel
+  @objc public var Do_WltDtl: BookeeyPaySDK.WalletKeyInfoModel
+  @objc public var DBRqst: Swift.String
   @objc deinit
   @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
@@ -105,6 +242,25 @@ public class SDKModel {
   @objc public var MdlID: Swift.String
   @objc public var OS: Swift.String
   @objc public var UsrSessID: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DeviceInfoModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var DevID: Swift.String
+  @objc public var DevOS: Swift.String
+  @objc public var DevcTyp: Swift.String
+  @objc public var MPhnOprtr: Swift.String
+  @objc public var MPhnSIMID: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MerchantAuthModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var MerUID: Swift.String
+  @objc public var MerAuthCD: Swift.String
   @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit
@@ -146,12 +302,78 @@ public class SDKModel {
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+@objc @_inheritsConvenienceInitializers @objcMembers public class SplitPaymentTransactionDetailModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var SubMerchUID: Swift.String
+  @objc public var Amount: Swift.String
+  @objc public var PayMthd: Swift.String
+  @objc public var TxnType: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class LoadTransactionDetailModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var Comission: Swift.String
+  @objc public var Merch_Txn_UID: Swift.String
+  @objc public var PayMthd: Swift.String
+  @objc public var SURL: Swift.String
+  @objc public var FURL: Swift.String
+  @objc public var Amount: Swift.String
+  @objc public var TxnType: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class WalletKeyInfoModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var WltID: Swift.String
+  @objc public var WltKey: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class UserDetailInfoModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var WltID: Swift.String
+  @objc public var MPhoneNo: Swift.String
+  @objc public var UserName: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
 @objc @_inheritsConvenienceInitializers @objcMembers public class TransactionHdrModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var Merch_Txn_UID: Swift.String
   @objc public var PayFor: Swift.String
   @objc public var Paymethod: Swift.String
   @objc public var Txn_HDR: Swift.String
   @objc public var hashMac: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class SplitPaymentTransactionHdrModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var Txn_HDR: Swift.String
+  @objc public var PayFor: Swift.String
+  @objc public var BKY_Txn_UID: Swift.String
+  @objc public var Merch_Txn_UID: Swift.String
+  @objc public var hashMac: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MoreDetail : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var Cart: Swift.String
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class UsrAuthModel : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var UsrSessnUID: Swift.String
+  @objc public var AuthTyp: Swift.String
   @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit

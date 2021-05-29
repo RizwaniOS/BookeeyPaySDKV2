@@ -245,13 +245,109 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK19BookeeyFailResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class BookeeyLoadWalletSuccessResponse;
+@class BookeeyLoadWalletFailResponse;
+@class BookeeyLoadWalletErrorResponse;
+
+SWIFT_PROTOCOL("_TtP13BookeeyPaySDK25BookeeyLoadWalletDelegate_")
+@protocol BookeeyLoadWalletDelegate
+- (void)loadWalletSuccessCallBackWithTransactionData:(BookeeyLoadWalletSuccessResponse * _Nonnull)transactionData;
+- (void)loadWalletFailureCallBackWithTransactionFailureData:(BookeeyLoadWalletFailResponse * _Nonnull)transactionFailureData;
+- (void)loadWalletPaymentCancelWithTransactionFailureData:(BookeeyLoadWalletErrorResponse * _Nonnull)transactionFailureData;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK30BookeeyLoadWalletErrorResponse")
+@interface BookeeyLoadWalletErrorResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK29BookeeyLoadWalletFailResponse")
+@interface BookeeyLoadWalletFailResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK32BookeeyLoadWalletSuccessResponse")
+@interface BookeeyLoadWalletSuccessResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class BookeeySuccessResponse;
 
 SWIFT_PROTOCOL("_TtP13BookeeyPaySDK18BookeeyPayDelegate_")
 @protocol BookeeyPayDelegate
 - (void)paymentSuccessCallBackWithTransactionData:(BookeeySuccessResponse * _Nonnull)transactionData;
-- (void)paymentFailueCallBackWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
+- (void)paymentFailureCallBackWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
 - (void)paymentCancelWithTransactionFailureData:(BookeeyErrorResponse * _Nonnull)transactionFailureData;
+@end
+
+@class BookeeySplitPaymentSuccessResponse;
+@class BookeeySplitPaymentFailResponse;
+@class BookeeySplitPaymentErrorResponse;
+
+SWIFT_PROTOCOL("_TtP13BookeeyPaySDK27BookeeySplitPaymentDelegate_")
+@protocol BookeeySplitPaymentDelegate
+- (void)splitPaymentSuccessCallBackWithTransactionData:(BookeeySplitPaymentSuccessResponse * _Nonnull)transactionData;
+- (void)splitPaymentFailureCallBackWithTransactionFailureData:(BookeeySplitPaymentFailResponse * _Nonnull)transactionFailureData;
+- (void)splitPaymentCancelWithTransactionFailureData:(BookeeySplitPaymentErrorResponse * _Nonnull)transactionFailureData;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK32BookeeySplitPaymentErrorResponse")
+@interface BookeeySplitPaymentErrorResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK31BookeeySplitPaymentFailResponse")
+@interface BookeeySplitPaymentFailResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK34BookeeySplitPaymentSuccessResponse")
+@interface BookeeySplitPaymentSuccessResponse : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
+@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -266,12 +362,67 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK22BookeeySuccessResponse")
 @end
 
 
+SWIFT_CLASS("_TtC13BookeeyPaySDK15DeviceInfoModel")
+@interface DeviceInfoModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull DevID;
+@property (nonatomic, copy) NSString * _Nonnull DevOS;
+@property (nonatomic, copy) NSString * _Nonnull DevcTyp;
+@property (nonatomic, copy) NSString * _Nonnull MPhnOprtr;
+@property (nonatomic, copy) NSString * _Nonnull MPhnSIMID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK26LoadTransactionDetailModel")
+@interface LoadTransactionDetailModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull Comission;
+@property (nonatomic, copy) NSString * _Nonnull Merch_Txn_UID;
+@property (nonatomic, copy) NSString * _Nonnull PayMthd;
+@property (nonatomic, copy) NSString * _Nonnull SURL;
+@property (nonatomic, copy) NSString * _Nonnull FURL;
+@property (nonatomic, copy) NSString * _Nonnull Amount;
+@property (nonatomic, copy) NSString * _Nonnull TxnType;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MerchantAuthModel;
+@class UserDetailInfoModel;
+@class WalletKeyInfoModel;
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK22LoadWalletRequestModel")
+@interface LoadWalletRequestModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull DBRqst;
+@property (nonatomic, strong) AppInfoModel * _Nonnull Do_Appinfo;
+@property (nonatomic, strong) MerchantAuthModel * _Nonnull Do_MerchAuth;
+@property (nonatomic, strong) DeviceInfoModel * _Nonnull Do_Dvcinfo;
+@property (nonatomic, strong) LoadTransactionDetailModel * _Nonnull Do_TxnDtl;
+@property (nonatomic, strong) UserDetailInfoModel * _Nonnull Do_UsrDtl;
+@property (nonatomic, strong) WalletKeyInfoModel * _Nonnull Do_WltDtl;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK17MerchantAuthModel")
+@interface MerchantAuthModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull MerUID;
+@property (nonatomic, copy) NSString * _Nonnull MerAuthCD;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC13BookeeyPaySDK17MerchantInfoModel")
 @interface MerchantInfoModel : NSObject
 @property (nonatomic, copy) NSString * _Nonnull MerchUID;
 @property (nonatomic, copy) NSString * _Nonnull BKY_PRDENUM;
 @property (nonatomic, copy) NSString * _Nonnull SURL;
 @property (nonatomic, copy) NSString * _Nonnull FURL;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK10MoreDetail")
+@interface MoreDetail : NSObject
+@property (nonatomic, copy) NSString * _Nonnull Cart;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -304,10 +455,13 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK19PayloadRequestModel")
 @property (nonatomic, strong) PayerInfoModel * _Nonnull Do_PyrDtl;
 @property (nonatomic, copy) NSArray<TransactionDetailModel *> * _Nonnull Do_TxnDtl;
 @property (nonatomic, strong) TransactionHdrModel * _Nonnull Do_TxnHdr;
+@property (nonatomic, strong) MoreDetail * _Nonnull Do_MoreDtl;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 enum SDKEnvironment : NSInteger;
+enum SDKApiRequestType : NSInteger;
+@class SplitPaymentRequestModel;
 @class UIColor;
 @class NSCoder;
 @class NSBundle;
@@ -315,14 +469,19 @@ enum SDKEnvironment : NSInteger;
 SWIFT_CLASS("_TtC13BookeeyPaySDK21PaymentViewController")
 @interface PaymentViewController : UIViewController
 @property (nonatomic) enum SDKEnvironment environMent;
-@property (nonatomic, strong) id <BookeeyPayDelegate> _Nullable delegate;
+@property (nonatomic) enum SDKApiRequestType sdkApiRequestType;
+@property (nonatomic, strong) id <BookeeyPayDelegate> _Nullable payDelegate;
+@property (nonatomic, strong) id <BookeeyLoadWalletDelegate> _Nullable loadWalletDelegate;
+@property (nonatomic, strong) id <BookeeySplitPaymentDelegate> _Nullable splitPaymentDelegate;
 @property (nonatomic, strong) PayloadRequestModel * _Nullable payLoadRequest;
+@property (nonatomic, strong) LoadWalletRequestModel * _Nullable loadWalletRequest;
+@property (nonatomic, strong) SplitPaymentRequestModel * _Nullable splitPaymentRequest;
 @property (nonatomic, strong) UIColor * _Nullable themeColor;
 @property (nonatomic, strong) UIColor * _Nullable tintColor;
 @property (nonatomic, copy) NSString * _Nullable cancelButtonTitle;
 @property (nonatomic, copy) NSString * _Nullable alertButtonTitle;
 @property (nonatomic, copy) NSString * _Nullable headerTitle;
-- (nonnull instancetype)initWithPayLoadModel:(PayloadRequestModel * _Nonnull)payLoadModel OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithPayLoadModel:(PayloadRequestModel * _Nullable)payLoadModel loadWalletModel:(LoadWalletRequestModel * _Nullable)loadWalletModel splitPaymentModel:(SplitPaymentRequestModel * _Nullable)splitPaymentModel OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
 - (NSInteger)getCurrentMilliSecs SWIFT_WARN_UNUSED_RESULT;
@@ -341,10 +500,57 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK21PaymentViewController")
 - (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
 @end
 
+typedef SWIFT_ENUM(NSInteger, SDKApiRequestType, open) {
+  SDKApiRequestTypeLoadWallet = 0,
+  SDKApiRequestTypePaySdk = 1,
+  SDKApiRequestTypeSplitPayment = 2,
+};
+
 typedef SWIFT_ENUM(NSInteger, SDKEnvironment, open) {
   SDKEnvironmentTest = 0,
   SDKEnvironmentLive = 1,
 };
+
+@class SplitPaymentTransactionHdrModel;
+@class SplitPaymentTransactionDetailModel;
+@class UsrAuthModel;
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK24SplitPaymentRequestModel")
+@interface SplitPaymentRequestModel : NSObject
+@property (nonatomic, strong) AppInfoModel * _Nonnull Do_Appinfo;
+@property (nonatomic, strong) DeviceInfoModel * _Nonnull Do_Dvcinfo;
+@property (nonatomic, strong) SplitPaymentTransactionHdrModel * _Nonnull Do_TxnHdr;
+@property (nonatomic, copy) NSArray<SplitPaymentTransactionDetailModel *> * _Nonnull Do_TxnDtl;
+@property (nonatomic, strong) MerchantInfoModel * _Nonnull Do_MerchDtl;
+@property (nonatomic, strong) PayerInfoModel * _Nonnull Do_PyrDtl;
+@property (nonatomic, strong) MerchantAuthModel * _Nonnull Do_MerchAuth;
+@property (nonatomic, strong) MoreDetail * _Nonnull Do_MoreDtl;
+@property (nonatomic, strong) UsrAuthModel * _Nonnull Do_UsrAuth;
+@property (nonatomic, strong) WalletKeyInfoModel * _Nonnull Do_WltDtl;
+@property (nonatomic, copy) NSString * _Nonnull DBRqst;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK34SplitPaymentTransactionDetailModel")
+@interface SplitPaymentTransactionDetailModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull SubMerchUID;
+@property (nonatomic, copy) NSString * _Nonnull Amount;
+@property (nonatomic, copy) NSString * _Nonnull PayMthd;
+@property (nonatomic, copy) NSString * _Nonnull TxnType;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK31SplitPaymentTransactionHdrModel")
+@interface SplitPaymentTransactionHdrModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull Txn_HDR;
+@property (nonatomic, copy) NSString * _Nonnull PayFor;
+@property (nonatomic, copy) NSString * _Nonnull BKY_Txn_UID;
+@property (nonatomic, copy) NSString * _Nonnull Merch_Txn_UID;
+@property (nonatomic, copy) NSString * _Nonnull hashMac;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS("_TtC13BookeeyPaySDK22TransactionDetailModel")
@@ -362,6 +568,31 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK19TransactionHdrModel")
 @property (nonatomic, copy) NSString * _Nonnull Paymethod;
 @property (nonatomic, copy) NSString * _Nonnull Txn_HDR;
 @property (nonatomic, copy) NSString * _Nonnull hashMac;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK19UserDetailInfoModel")
+@interface UserDetailInfoModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull WltID;
+@property (nonatomic, copy) NSString * _Nonnull MPhoneNo;
+@property (nonatomic, copy) NSString * _Nonnull UserName;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK12UsrAuthModel")
+@interface UsrAuthModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull UsrSessnUID;
+@property (nonatomic, copy) NSString * _Nonnull AuthTyp;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC13BookeeyPaySDK18WalletKeyInfoModel")
+@interface WalletKeyInfoModel : NSObject
+@property (nonatomic, copy) NSString * _Nonnull WltID;
+@property (nonatomic, copy) NSString * _Nonnull WltKey;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
