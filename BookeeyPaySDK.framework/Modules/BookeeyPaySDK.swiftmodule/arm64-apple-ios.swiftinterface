@@ -13,14 +13,14 @@ import WebKit
   @objc func paymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyErrorResponse)
 }
 @objc public protocol BookeeyLoadWalletDelegate {
-  @objc func loadWalletSuccessCallBack(transactionData: BookeeyPaySDK.BookeeyLoadWalletSuccessResponse)
-  @objc func loadWalletFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeyLoadWalletFailResponse)
-  @objc func loadWalletPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyLoadWalletErrorResponse)
+  @objc func loadWalletSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySuccessResponse)
+  @objc func loadWalletFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
+  @objc func loadWalletPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyErrorResponse)
 }
 @objc public protocol BookeeySplitPaymentDelegate {
-  @objc func splitPaymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySplitPaymentSuccessResponse)
-  @objc func splitPaymentFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeySplitPaymentFailResponse)
-  @objc func splitPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeySplitPaymentErrorResponse)
+  @objc func splitPaymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySuccessResponse)
+  @objc func splitPaymentFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
+  @objc func splitPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyErrorResponse)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class PaymentViewController : UIKit.UIViewController {
   @objc public var environMent: BookeeyPaySDK.SDKEnvironment
@@ -36,6 +36,8 @@ import WebKit
   @objc public var cancelButtonTitle: Swift.String?
   @objc public var alertButtonTitle: Swift.String?
   @objc public var headerTitle: Swift.String?
+  @objc public var merchantSecretKey: Swift.String?
+  @objc public var paymentMethod: Swift.String
   @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel? = nil, loadWalletModel: BookeeyPaySDK.LoadWalletRequestModel? = nil, splitPaymentModel: BookeeyPaySDK.SplitPaymentRequestModel? = nil)
   @objc override dynamic public func viewDidLoad()
   @objc public func getCurrentMilliSecs() -> Swift.Int
@@ -174,6 +176,25 @@ public class LoadWalletApiResponse : Swift.Codable {
 }
 public class LoadWallet : Swift.Codable {
   final public let loadWalletResponse: BookeeyPaySDK.LoadWalletResponse?
+  final public let successWalletResponse: [BookeeyPaySDK.SuccessWalletResponse]?
+  final public let errorResponse: [BookeeyPaySDK.ErrorWalletResponse]?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class SuccessWalletResponse : Swift.Codable {
+  @objc final public let MerchantID: Swift.String?
+  final public let TrackUID: Swift.Int?
+  final public let MerchRefUID: Swift.Int?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class ErrorWalletResponse : Swift.Codable {
+  @objc final public let ERRENM: Swift.String?
+  final public let ERRCD: Swift.Int?
+  final public let Usr_ERRDESC_En: Swift.String?
+  final public let Usr_ERRDESC_UCD: Swift.String?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws

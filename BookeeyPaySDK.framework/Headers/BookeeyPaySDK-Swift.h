@@ -245,15 +245,13 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK19BookeeyFailResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class BookeeyLoadWalletSuccessResponse;
-@class BookeeyLoadWalletFailResponse;
-@class BookeeyLoadWalletErrorResponse;
+@class BookeeySuccessResponse;
 
 SWIFT_PROTOCOL("_TtP13BookeeyPaySDK25BookeeyLoadWalletDelegate_")
 @protocol BookeeyLoadWalletDelegate
-- (void)loadWalletSuccessCallBackWithTransactionData:(BookeeyLoadWalletSuccessResponse * _Nonnull)transactionData;
-- (void)loadWalletFailureCallBackWithTransactionFailureData:(BookeeyLoadWalletFailResponse * _Nonnull)transactionFailureData;
-- (void)loadWalletPaymentCancelWithTransactionFailureData:(BookeeyLoadWalletErrorResponse * _Nonnull)transactionFailureData;
+- (void)loadWalletSuccessCallBackWithTransactionData:(BookeeySuccessResponse * _Nonnull)transactionData;
+- (void)loadWalletFailureCallBackWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
+- (void)loadWalletPaymentCancelWithTransactionFailureData:(BookeeyErrorResponse * _Nonnull)transactionFailureData;
 @end
 
 
@@ -293,7 +291,6 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK32BookeeyLoadWalletSuccessResponse")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class BookeeySuccessResponse;
 
 SWIFT_PROTOCOL("_TtP13BookeeyPaySDK18BookeeyPayDelegate_")
 @protocol BookeeyPayDelegate
@@ -302,15 +299,12 @@ SWIFT_PROTOCOL("_TtP13BookeeyPaySDK18BookeeyPayDelegate_")
 - (void)paymentCancelWithTransactionFailureData:(BookeeyErrorResponse * _Nonnull)transactionFailureData;
 @end
 
-@class BookeeySplitPaymentSuccessResponse;
-@class BookeeySplitPaymentFailResponse;
-@class BookeeySplitPaymentErrorResponse;
 
 SWIFT_PROTOCOL("_TtP13BookeeyPaySDK27BookeeySplitPaymentDelegate_")
 @protocol BookeeySplitPaymentDelegate
-- (void)splitPaymentSuccessCallBackWithTransactionData:(BookeeySplitPaymentSuccessResponse * _Nonnull)transactionData;
-- (void)splitPaymentFailureCallBackWithTransactionFailureData:(BookeeySplitPaymentFailResponse * _Nonnull)transactionFailureData;
-- (void)splitPaymentCancelWithTransactionFailureData:(BookeeySplitPaymentErrorResponse * _Nonnull)transactionFailureData;
+- (void)splitPaymentSuccessCallBackWithTransactionData:(BookeeySuccessResponse * _Nonnull)transactionData;
+- (void)splitPaymentFailureCallBackWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
+- (void)splitPaymentCancelWithTransactionFailureData:(BookeeyErrorResponse * _Nonnull)transactionFailureData;
 @end
 
 
@@ -481,6 +475,8 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK21PaymentViewController")
 @property (nonatomic, copy) NSString * _Nullable cancelButtonTitle;
 @property (nonatomic, copy) NSString * _Nullable alertButtonTitle;
 @property (nonatomic, copy) NSString * _Nullable headerTitle;
+@property (nonatomic, copy) NSString * _Nullable merchantSecretKey;
+@property (nonatomic, copy) NSString * _Nonnull paymentMethod;
 - (nonnull instancetype)initWithPayLoadModel:(PayloadRequestModel * _Nullable)payLoadModel loadWalletModel:(LoadWalletRequestModel * _Nullable)loadWalletModel splitPaymentModel:(SplitPaymentRequestModel * _Nullable)splitPaymentModel OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
