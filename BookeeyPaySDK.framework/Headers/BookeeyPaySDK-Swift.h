@@ -239,8 +239,15 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK19BookeeyFailResponse")
 @interface BookeeyFailResponse : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull merchantTxnId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorMessage;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
+@property (nonatomic, readonly, copy) NSString * _Nonnull capturedAmount;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pgRef;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payMethod;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dOResponse;
+@property (nonatomic, readonly, copy) NSString * _Nonnull tOResponse;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
+@property (nonatomic, readonly, copy) NSString * _Nonnull walletBalance;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDescription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -252,43 +259,6 @@ SWIFT_PROTOCOL("_TtP13BookeeyPaySDK25BookeeyLoadWalletDelegate_")
 - (void)loadWalletSuccessCallBackWithTransactionData:(BookeeySuccessResponse * _Nonnull)transactionData;
 - (void)loadWalletFailureCallBackWithTransactionFailureData:(BookeeyFailResponse * _Nonnull)transactionFailureData;
 - (void)loadWalletPaymentCancelWithTransactionFailureData:(BookeeyErrorResponse * _Nonnull)transactionFailureData;
-@end
-
-
-SWIFT_CLASS("_TtC13BookeeyPaySDK30BookeeyLoadWalletErrorResponse")
-@interface BookeeyLoadWalletErrorResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC13BookeeyPaySDK29BookeeyLoadWalletFailResponse")
-@interface BookeeyLoadWalletFailResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
-@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
-@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
-@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC13BookeeyPaySDK32BookeeyLoadWalletSuccessResponse")
-@interface BookeeyLoadWalletSuccessResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
-@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
-@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
-@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -308,49 +278,19 @@ SWIFT_PROTOCOL("_TtP13BookeeyPaySDK27BookeeySplitPaymentDelegate_")
 @end
 
 
-SWIFT_CLASS("_TtC13BookeeyPaySDK32BookeeySplitPaymentErrorResponse")
-@interface BookeeySplitPaymentErrorResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC13BookeeyPaySDK31BookeeySplitPaymentFailResponse")
-@interface BookeeySplitPaymentFailResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
-@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
-@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
-@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC13BookeeyPaySDK34BookeeySplitPaymentSuccessResponse")
-@interface BookeeySplitPaymentSuccessResponse : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull trackUID;
-@property (nonatomic, readonly, copy) NSString * _Nonnull pGRef;
-@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorDesc;
-@property (nonatomic, readonly, copy) NSString * _Nonnull merchTxnUId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull errorCD;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
 SWIFT_CLASS("_TtC13BookeeyPaySDK22BookeeySuccessResponse")
 @interface BookeeySuccessResponse : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull merchantTxnId;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull transactionMessage;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
+@property (nonatomic, readonly, copy) NSString * _Nonnull capturedAmount;
+@property (nonatomic, readonly, copy) NSString * _Nonnull pgRef;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payMethod;
+@property (nonatomic, readonly, copy) NSString * _Nonnull dOResponse;
+@property (nonatomic, readonly, copy) NSString * _Nonnull tOResponse;
+@property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
+@property (nonatomic, readonly, copy) NSString * _Nonnull walletBalance;
+@property (nonatomic, readonly, copy) NSString * _Nonnull errorDescription;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

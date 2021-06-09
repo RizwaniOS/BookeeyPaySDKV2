@@ -78,8 +78,15 @@ public class SDKModel {
 @objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySuccessResponse : ObjectiveC.NSObject {
   @objc final public let merchantTxnId: Swift.String
   @objc final public let transactionId: Swift.String
-  @objc final public let transactionMessage: Swift.String
   @objc final public let errorCode: Swift.String
+  @objc final public let capturedAmount: Swift.String
+  @objc final public let pgRef: Swift.String
+  @objc final public let payMethod: Swift.String
+  @objc final public let dOResponse: Swift.String
+  @objc final public let tOResponse: Swift.String
+  @objc final public let payStat: Swift.String
+  @objc final public let walletBalance: Swift.String
+  @objc final public let errorDescription: Swift.String
   @objc deinit
   @objc override dynamic public init()
 }
@@ -90,67 +97,18 @@ public class SDKModel {
   @objc deinit
   @objc override dynamic public init()
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySplitPaymentErrorResponse : ObjectiveC.NSObject {
-  @objc final public let merchTxnUId: Swift.String
-  @objc final public let trackUID: Swift.String
-  @objc final public let errorCD: Swift.String
-  @objc final public let errorDesc: Swift.String
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySplitPaymentFailResponse : ObjectiveC.NSObject {
-  @objc final public let trackUID: Swift.String
-  @objc final public let pGRef: Swift.String
-  @objc final public let payStat: Swift.String
-  @objc final public let errorDesc: Swift.String
-  @objc final public let merchTxnUId: Swift.String
-  @objc final public let errorCD: Swift.String
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeySplitPaymentSuccessResponse : ObjectiveC.NSObject {
-  @objc final public let trackUID: Swift.String
-  @objc final public let pGRef: Swift.String
-  @objc final public let payStat: Swift.String
-  @objc final public let errorDesc: Swift.String
-  @objc final public let merchTxnUId: Swift.String
-  @objc final public let errorCD: Swift.String
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyLoadWalletErrorResponse : ObjectiveC.NSObject {
-  @objc final public let merchTxnUId: Swift.String
-  @objc final public let trackUID: Swift.String
-  @objc final public let errorCD: Swift.String
-  @objc final public let errorDesc: Swift.String
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyLoadWalletFailResponse : ObjectiveC.NSObject {
-  @objc final public let trackUID: Swift.String
-  @objc final public let pGRef: Swift.String
-  @objc final public let payStat: Swift.String
-  @objc final public let errorDesc: Swift.String
-  @objc final public let merchTxnUId: Swift.String
-  @objc final public let errorCD: Swift.String
-  @objc deinit
-  @objc override dynamic public init()
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyLoadWalletSuccessResponse : ObjectiveC.NSObject {
-  @objc final public let trackUID: Swift.String
-  @objc final public let pGRef: Swift.String
-  @objc final public let payStat: Swift.String
-  @objc final public let errorDesc: Swift.String
-  @objc final public let merchTxnUId: Swift.String
-  @objc final public let errorCD: Swift.String
-  @objc deinit
-  @objc override dynamic public init()
-}
 @objc @_hasMissingDesignatedInitializers @objcMembers public class BookeeyFailResponse : ObjectiveC.NSObject {
   @objc final public let merchantTxnId: Swift.String
   @objc final public let transactionId: Swift.String
-  @objc final public let errorMessage: Swift.String
   @objc final public let errorCode: Swift.String
+  @objc final public let capturedAmount: Swift.String
+  @objc final public let pgRef: Swift.String
+  @objc final public let payMethod: Swift.String
+  @objc final public let dOResponse: Swift.String
+  @objc final public let tOResponse: Swift.String
+  @objc final public let payStat: Swift.String
+  @objc final public let walletBalance: Swift.String
+  @objc final public let errorDescription: Swift.String
   @objc deinit
   @objc override dynamic public init()
 }
@@ -186,6 +144,13 @@ public class SuccessWalletResponse : Swift.Codable {
   @objc final public let MerchantID: Swift.String?
   final public let TrackUID: Swift.Int?
   final public let MerchRefUID: Swift.Int?
+  final public let Captured_AMT: Swift.Double?
+  final public let DOResponse: Swift.String?
+  final public let TOResponse: Swift.String?
+  final public let PGRef: Swift.String?
+  final public let PayStat: Swift.String?
+  final public let PayMethod: Swift.String?
+  final public let Wlt_Bal: Swift.Double?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
