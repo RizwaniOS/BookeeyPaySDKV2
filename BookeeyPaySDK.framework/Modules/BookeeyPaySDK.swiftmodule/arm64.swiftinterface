@@ -125,6 +125,7 @@ public class SDKModel {
 public class LoadWalletApiResponse : Swift.Codable {
   final public let data: BookeeyPaySDK.LoadWallet?
   final public let isSuccess: Swift.Bool?
+  final public let isWltAlone: Swift.Bool?
   @objc final public let message: Swift.String?
   @objc final public let sessionToken: Swift.String?
   @objc final public let totalRecord: Swift.String?
@@ -134,8 +135,17 @@ public class LoadWalletApiResponse : Swift.Codable {
 }
 public class LoadWallet : Swift.Codable {
   final public let loadWalletResponse: BookeeyPaySDK.LoadWalletResponse?
-  final public let successWalletResponse: [BookeeyPaySDK.SuccessWalletResponse]?
-  final public let errorResponse: [BookeeyPaySDK.ErrorWalletResponse]?
+  final public let TrackUID: Swift.String?
+  final public let MerchTxnUId: Swift.String?
+  final public let Captured_AMT: Swift.String?
+  final public let DOResponse: Swift.String?
+  final public let TOResponse: Swift.String?
+  final public let PGRef: Swift.String?
+  final public let PayStat: Swift.String?
+  final public let PayMethod: Swift.String?
+  final public let Wlt_Bal: Swift.String?
+  final public let ErrorCD: Swift.String?
+  final public let ErrorDesc: Swift.String?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
