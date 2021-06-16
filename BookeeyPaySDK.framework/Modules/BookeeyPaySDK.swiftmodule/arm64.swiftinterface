@@ -40,6 +40,8 @@ import WebKit
   @objc public var paymentMethod: Swift.String
   @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel? = nil, loadWalletModel: BookeeyPaySDK.LoadWalletRequestModel? = nil, splitPaymentModel: BookeeyPaySDK.SplitPaymentRequestModel? = nil)
   @objc override dynamic public func viewDidLoad()
+  @objc public func cancelPressed()
+  @objc public func walletAlonePayment()
   @objc public func getCurrentMilliSecs() -> Swift.Int
   @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
   @objc deinit
@@ -146,30 +148,7 @@ public class LoadWallet : Swift.Codable {
   final public let Wlt_Bal: Swift.String?
   final public let ErrorCD: Swift.String?
   final public let ErrorDesc: Swift.String?
-  @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
-}
-public class SuccessWalletResponse : Swift.Codable {
-  @objc final public let MerchantID: Swift.String?
-  final public let TrackUID: Swift.Int?
-  final public let MerchRefUID: Swift.Int?
-  final public let Captured_AMT: Swift.Double?
-  final public let DOResponse: Swift.String?
-  final public let TOResponse: Swift.String?
-  final public let PGRef: Swift.String?
-  final public let PayStat: Swift.String?
-  final public let PayMethod: Swift.String?
-  final public let Wlt_Bal: Swift.Double?
-  @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
-}
-public class ErrorWalletResponse : Swift.Codable {
-  @objc final public let ERRENM: Swift.String?
-  final public let ERRCD: Swift.Int?
-  final public let Usr_ERRDESC_En: Swift.String?
-  final public let Usr_ERRDESC_UCD: Swift.String?
+  final public let IsWltAlone: Swift.Bool?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws

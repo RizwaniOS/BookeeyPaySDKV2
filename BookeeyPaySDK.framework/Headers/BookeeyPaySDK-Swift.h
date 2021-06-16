@@ -420,6 +420,8 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK21PaymentViewController")
 - (nonnull instancetype)initWithPayLoadModel:(PayloadRequestModel * _Nullable)payLoadModel loadWalletModel:(LoadWalletRequestModel * _Nullable)loadWalletModel splitPaymentModel:(SplitPaymentRequestModel * _Nullable)splitPaymentModel OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
+- (void)cancelPressed;
+- (void)walletAlonePayment;
 - (NSInteger)getCurrentMilliSecs SWIFT_WARN_UNUSED_RESULT;
 - (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;

@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "BookeeyPaySDK"
-  spec.version      = "2.3.0"
+  spec.version      = "2.4.0"
   spec.summary      = "BookeeyPay hassle free iOS payment SDK with pay, load wallet and split payment"
 
   spec.description  = <<-DESC
