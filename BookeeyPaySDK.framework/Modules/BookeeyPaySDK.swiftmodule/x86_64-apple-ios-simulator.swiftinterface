@@ -89,6 +89,7 @@ public class SDKModel {
   @objc final public let payStat: Swift.String
   @objc final public let walletBalance: Swift.String
   @objc final public let errorDescription: Swift.String
+  @objc final public let walletTrackUID: Swift.String
   @objc deinit
   @objc override dynamic public init()
 }
@@ -111,6 +112,7 @@ public class SDKModel {
   @objc final public let payStat: Swift.String
   @objc final public let walletBalance: Swift.String
   @objc final public let errorDescription: Swift.String
+  @objc final public let walletTrackUID: Swift.String
   @objc deinit
   @objc override dynamic public init()
 }
@@ -148,6 +150,7 @@ public class LoadWallet : Swift.Codable {
   final public let Wlt_Bal: Swift.String?
   final public let ErrorCD: Swift.String?
   final public let ErrorDesc: Swift.String?
+  final public let WalletTrackUID: Swift.String?
   final public let IsWltAlone: Swift.Bool?
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws

@@ -248,6 +248,7 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK19BookeeyFailResponse")
 @property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
 @property (nonatomic, readonly, copy) NSString * _Nonnull walletBalance;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorDescription;
+@property (nonatomic, readonly, copy) NSString * _Nonnull walletTrackUID;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -291,6 +292,7 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK22BookeeySuccessResponse")
 @property (nonatomic, readonly, copy) NSString * _Nonnull payStat;
 @property (nonatomic, readonly, copy) NSString * _Nonnull walletBalance;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorDescription;
+@property (nonatomic, readonly, copy) NSString * _Nonnull walletTrackUID;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
