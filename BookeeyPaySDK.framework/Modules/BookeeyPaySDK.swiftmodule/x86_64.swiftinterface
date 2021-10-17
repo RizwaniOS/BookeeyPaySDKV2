@@ -37,6 +37,8 @@ import WebKit
   @objc public var alertButtonTitle: Swift.String?
   @objc public var headerTitle: Swift.String?
   @objc public var merchantSecretKey: Swift.String?
+  @objc public var isCancelButtonEnabled: Swift.Bool
+  @objc public var cancelBarButton: UIKit.UIBarButtonItem!
   @objc public var paymentMethod: Swift.String
   @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel? = nil, loadWalletModel: BookeeyPaySDK.LoadWalletRequestModel? = nil, splitPaymentModel: BookeeyPaySDK.SplitPaymentRequestModel? = nil)
   @objc override dynamic public func viewDidLoad()

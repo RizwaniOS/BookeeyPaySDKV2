@@ -399,6 +399,7 @@ enum SDKEnvironment : NSInteger;
 enum SDKApiRequestType : NSInteger;
 @class SplitPaymentRequestModel;
 @class UIColor;
+@class UIBarButtonItem;
 @class NSCoder;
 @class NSBundle;
 
@@ -418,6 +419,8 @@ SWIFT_CLASS("_TtC13BookeeyPaySDK21PaymentViewController")
 @property (nonatomic, copy) NSString * _Nullable alertButtonTitle;
 @property (nonatomic, copy) NSString * _Nullable headerTitle;
 @property (nonatomic, copy) NSString * _Nullable merchantSecretKey;
+@property (nonatomic) BOOL isCancelButtonEnabled;
+@property (nonatomic, strong) UIBarButtonItem * _Null_unspecified cancelBarButton;
 @property (nonatomic, copy) NSString * _Nonnull paymentMethod;
 - (nonnull instancetype)initWithPayLoadModel:(PayloadRequestModel * _Nullable)payLoadModel loadWalletModel:(LoadWalletRequestModel * _Nullable)loadWalletModel splitPaymentModel:(SplitPaymentRequestModel * _Nullable)splitPaymentModel OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
