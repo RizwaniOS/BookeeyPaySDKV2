@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'BookeeyPaySDK'
-  spec.version      = '2.9.0'
+  spec.version      = '3.0.0'
   spec.license      = 'MIT'
   spec.summary      = 'BookeeyPaySDK payment'
   spec.homepage     = 'https://github.com/RizwaniOS/BookeeyPaySDKV2'

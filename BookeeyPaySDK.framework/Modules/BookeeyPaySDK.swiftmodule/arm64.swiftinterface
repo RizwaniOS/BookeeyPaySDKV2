@@ -1,11 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BookeeyPaySDK
 @_exported import BookeeyPaySDK
 import CommonCrypto
 import Swift
 import UIKit
 import WebKit
+import _Concurrency
 @objc public protocol BookeeyPayDelegate {
   @objc func paymentSuccessCallBack(transactionData: BookeeyPaySDK.BookeeySuccessResponse)
   @objc func paymentFailueCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
@@ -21,39 +22,38 @@ import WebKit
   @objc func splitPaymentFailureCallBack(transactionFailureData: BookeeyPaySDK.BookeeyFailResponse)
   @objc func splitPaymentCancel(transactionFailureData: BookeeyPaySDK.BookeeyErrorResponse)
 }
-@_hasMissingDesignatedInitializers @objc public class PaymentViewController : UIKit.UIViewController {
-  @objc public var environMent: BookeeyPaySDK.SDKEnvironment
-  @objc public var sdkApiRequestType: BookeeyPaySDK.SDKApiRequestType
-  @objc public var payDelegate: BookeeyPaySDK.BookeeyPayDelegate?
-  @objc public var loadWalletDelegate: BookeeyPaySDK.BookeeyLoadWalletDelegate?
-  @objc public var splitPaymentDelegate: BookeeyPaySDK.BookeeySplitPaymentDelegate?
-  @objc public var payLoadRequest: BookeeyPaySDK.PayloadRequestModel?
-  @objc public var loadWalletRequest: BookeeyPaySDK.LoadWalletRequestModel?
-  @objc public var splitPaymentRequest: BookeeyPaySDK.SplitPaymentRequestModel?
-  @objc public var themeColor: UIKit.UIColor?
-  @objc public var tintColor: UIKit.UIColor?
-  @objc public var titleColor: UIKit.UIColor?
-  @objc public var cancelButtonTitle: Swift.String?
-  @objc public var alertButtonTitle: Swift.String?
-  @objc public var headerTitle: Swift.String?
-  @objc public var merchantSecretKey: Swift.String?
-  @objc public var merchantId: Swift.String?
-  @objc public var isCancelButtonEnabled: Swift.Bool
-  @objc public var cancelBarButton: UIKit.UIBarButtonItem!
-  @objc public var paymentMethod: Swift.String?
-  public var delegate: BookeeyPaySDK.BookeeyPayDelegate?
-  @objc public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel? = nil, loadWalletModel: BookeeyPaySDK.LoadWalletRequestModel? = nil, splitPaymentModel: BookeeyPaySDK.SplitPaymentRequestModel? = nil)
-  @objc override dynamic public func viewDidLoad()
-  @objc public func walletAlonePayment()
+@_hasMissingDesignatedInitializers @objc @_Concurrency.MainActor(unsafe) public class PaymentViewController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) public var environMent: BookeeyPaySDK.SDKEnvironment
+  @objc @_Concurrency.MainActor(unsafe) public var sdkApiRequestType: BookeeyPaySDK.SDKApiRequestType
+  @objc @_Concurrency.MainActor(unsafe) public var payDelegate: BookeeyPaySDK.BookeeyPayDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public var loadWalletDelegate: BookeeyPaySDK.BookeeyLoadWalletDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public var splitPaymentDelegate: BookeeyPaySDK.BookeeySplitPaymentDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public var payLoadRequest: BookeeyPaySDK.PayloadRequestModel?
+  @objc @_Concurrency.MainActor(unsafe) public var loadWalletRequest: BookeeyPaySDK.LoadWalletRequestModel?
+  @objc @_Concurrency.MainActor(unsafe) public var splitPaymentRequest: BookeeyPaySDK.SplitPaymentRequestModel?
+  @objc @_Concurrency.MainActor(unsafe) public var themeColor: UIKit.UIColor?
+  @objc @_Concurrency.MainActor(unsafe) public var tintColor: UIKit.UIColor?
+  @objc @_Concurrency.MainActor(unsafe) public var titleColor: UIKit.UIColor?
+  @objc @_Concurrency.MainActor(unsafe) public var cancelButtonTitle: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public var alertButtonTitle: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public var headerTitle: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public var merchantSecretKey: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public var merchantId: Swift.String?
+  @objc @_Concurrency.MainActor(unsafe) public var isCancelButtonEnabled: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var cancelBarButton: UIKit.UIBarButtonItem!
+  @objc @_Concurrency.MainActor(unsafe) public var paymentMethod: Swift.String?
+  @_Concurrency.MainActor(unsafe) public var delegate: BookeeyPaySDK.BookeeyPayDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public init(payLoadModel: BookeeyPaySDK.PayloadRequestModel? = nil, loadWalletModel: BookeeyPaySDK.LoadWalletRequestModel? = nil, splitPaymentModel: BookeeyPaySDK.SplitPaymentRequestModel? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) public func walletAlonePayment()
   @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
-  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
   @objc deinit
 }
-extension PaymentViewController : WebKit.WKNavigationDelegate {
-  @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
-  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
-  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: Swift.Error)
+extension BookeeyPaySDK.PaymentViewController : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: Swift.Error)
 }
 public class SDKModel {
   public init()
@@ -92,7 +92,6 @@ public class SDKModel {
   final public let walletBalance: Swift.String
   final public let errorDescription: Swift.String
   final public let walletTrackUID: Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class BookeeyFailResponse : ObjectiveC.NSObject {
@@ -108,14 +107,12 @@ public class SDKModel {
   final public let walletBalance: Swift.String
   final public let errorDescription: Swift.String
   final public let walletTrackUID: Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class BookeeyErrorResponse : ObjectiveC.NSObject {
   final public let merchantTxnId: Swift.String
   final public let errorMessage: Swift.String
   final public let errorCode: Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc public class PayloadRequestModel : ObjectiveC.NSObject, Swift.Codable {
@@ -146,7 +143,6 @@ public struct LoadModel : Swift.Codable {
   public init(DBRqst: Swift.String = "Ld_Wlt", Do_MerchAuth: BookeeyPaySDK.MerchantAuthModel = MerchantAuthModel(), Do_Appinfo: BookeeyPaySDK.AppInfoModel = AppInfoModel(), Do_Dvcinfo: BookeeyPaySDK.DeviceInfoModel = DeviceInfoModel(), Do_TxnDtl: BookeeyPaySDK.LoadTransactionDetailModel = LoadTransactionDetailModel(), Do_UsrDtl: BookeeyPaySDK.UserDetailInfoModel = UserDetailInfoModel(), Do_WltDtl: BookeeyPaySDK.WalletKeyInfoModel = WalletKeyInfoModel())
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc public class SplitPaymentRequestModel : ObjectiveC.NSObject, Swift.Codable {
@@ -163,7 +159,6 @@ public struct LoadModel : Swift.Codable {
   public var Do_WltDtl: BookeeyPaySDK.WalletKeyInfoModel
   public var merchantKey: Swift.String
   public init(DBRqst: Swift.String = "Ld_Pay", Do_Appinfo: BookeeyPaySDK.AppInfoModel = AppInfoModel(), Do_Dvcinfo: BookeeyPaySDK.DeviceInfoModel = DeviceInfoModel(), Do_TxnHdr: BookeeyPaySDK.SplitPaymentTransactionHdrModel = SplitPaymentTransactionHdrModel(), Do_TxnDtl: [BookeeyPaySDK.SplitPaymentTransactionDetailModel] = [SplitPaymentTransactionDetailModel](), Do_MerchDtl: BookeeyPaySDK.MerchantInfoModel = MerchantInfoModel(), Do_PyrDtl: BookeeyPaySDK.PayerInfoModel = PayerInfoModel(), Do_MerchAuth: BookeeyPaySDK.MerchantAuthModel = MerchantAuthModel(), Do_MoreDtl: BookeeyPaySDK.MoreDetail = MoreDetail(), Do_UsrAuth: BookeeyPaySDK.UsrAuthModel = UsrAuthModel(), Do_WltDtl: BookeeyPaySDK.WalletKeyInfoModel = WalletKeyInfoModel(), merchantKey: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -174,7 +169,6 @@ public struct LoadModel : Swift.Codable {
   public var SURL: Swift.String
   public var FURL: Swift.String
   public init(MerchUID: Swift.String = "", BKY_PRDENUM: Swift.String = "", SURL: Swift.String = "https://www.bookeey.com/portal/paymentSuccess", FURL: Swift.String = "https://demo.bookeey.com/portal/paymentfailure")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -185,7 +179,6 @@ public struct LoadModel : Swift.Codable {
   public var Paymethod: Swift.String
   public var Txn_HDR: Swift.String
   public var hashMac: Swift.String
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -196,7 +189,6 @@ public struct LoadModel : Swift.Codable {
   public var PayMthd: Swift.String
   public var TxnType: Swift.String
   public init(SubMerchUID: Swift.String = "", Amount: Swift.String = "", PayMthd: Swift.String = "", TxnType: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -208,7 +200,6 @@ public struct LoadModel : Swift.Codable {
   public var Txn_HDR: Swift.String
   public var hashMac: Swift.String
   public init(Merch_Txn_UID: Swift.String = "", PayFor: Swift.String = "ECom", BKY_Txn_UID: Swift.String = "", Txn_HDR: Swift.String = "", hashMac: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -218,7 +209,6 @@ public struct LoadModel : Swift.Codable {
   public var MPhoneNo: Swift.String
   public var UserName: Swift.String
   public init(WltID: Swift.String = "", MPhoneNo: Swift.String = "", UserName: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -227,7 +217,6 @@ public struct LoadModel : Swift.Codable {
   public var WltID: Swift.String
   public var WltKey: Swift.String
   public init(WltID: Swift.String = "", WltKey: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -236,7 +225,6 @@ public struct LoadModel : Swift.Codable {
   public var MerUID: Swift.String
   public var MerAuthCD: Swift.String
   public init(MerUID: Swift.String = "", MerAuthCD: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -245,7 +233,6 @@ public struct LoadModel : Swift.Codable {
   public var UsrSessnUID: Swift.String
   public var AuthTyp: Swift.String
   public init(UsrSessnUID: Swift.String = "", AuthTyp: Swift.String = "3")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -271,7 +258,6 @@ public struct TransactionDetailModel : Swift.Codable {
   public init(APIVer: Swift.String = "1.0", APPID: Swift.String = "PG", APPTyp: Swift.String = "MAPP", AppVer: Swift.String = "1.0", Country: Swift.String = "", DevcType: Swift.String = "", HsCode: Swift.String = "", IPAddrs: Swift.String = "", MdlID: Swift.String = "Pay_Req", OS: Swift.String = "", UsrSessID: Swift.String = "")
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc public class DeviceInfoModel : ObjectiveC.NSObject, Swift.Codable {
@@ -283,7 +269,6 @@ public struct TransactionDetailModel : Swift.Codable {
   public init(DevID: Swift.String = "", DevOS: Swift.String = "", DevcTyp: Swift.String = "", MPhnOprtr: Swift.String = "", MPhnSIMID: Swift.String = "")
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc public class LoadTransactionDetailModel : ObjectiveC.NSObject, Swift.Codable {
@@ -297,7 +282,6 @@ public struct TransactionDetailModel : Swift.Codable {
   public init(Comission: Swift.String = "", Merch_Txn_UID: Swift.String = "", PayMthd: Swift.String = "", SURL: Swift.String = "https://www.bookeey.com/portal/paymentSuccess", FURL: Swift.String = "https://www.bookeey.com/portal/paymentfailure", Amount: Swift.String = "", TxnType: Swift.String = "")
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc public class LoadWallet : ObjectiveC.NSObject, Swift.Codable {
@@ -331,7 +315,6 @@ public struct TransactionDetailModel : Swift.Codable {
 @objc public class MoreDetail : ObjectiveC.NSObject, Swift.Codable {
   public var Cart: Swift.String
   public init(Cart: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -341,7 +324,6 @@ public struct TransactionDetailModel : Swift.Codable {
   public var Cust_Data2: Swift.String
   public var Cust_Data3: Swift.String
   public init(Cust_Data1: Swift.String = "", Cust_Data2: Swift.String = "", Cust_Data3: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
@@ -350,7 +332,6 @@ public struct TransactionDetailModel : Swift.Codable {
   public var Pyr_MPhone: Swift.String
   public var Pyr_Name: Swift.String
   public init(Pyr_MPhone: Swift.String = "", Pyr_Name: Swift.String = "")
-  @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws

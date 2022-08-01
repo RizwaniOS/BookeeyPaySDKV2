@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/BookeeyPaySDK-Swift.h</key>
 		<data>
-		3Vb0lf3s5juE9h8VrT6DemMRx18=
+		VWREvPrzftrUdQFZ0t5NlO5MSrk=
 		</data>
 		<key>Headers/BookeeyPaySDK.h</key>
 		<data>
@@ -14,39 +14,39 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		MpQrdZyCFagGJoslD22rJRpj+I0=
+		FzR3tFGEU55lQaMqSFBLJcqAx2o=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		mwX+qcy1SU8Lqra0rQGHffsD4ZU=
+		5Y5151dxkHhw2Vc2DA9zoy9qQnI=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		mwX+qcy1SU8Lqra0rQGHffsD4ZU=
+		5Y5151dxkHhw2Vc2DA9zoy9qQnI=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		gE0MnM3PtqEaITiOd9umUEIojOw=
+		mZ+T4XVTwQwmPnnqFPrkf5j+DIc=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		0dxkz5oOSWtbTgS7osMFkEll3Pg=
+		IyOmpk20GzuAhB1nlF/Rfc8HwIk=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		1fW0G84ELivdlg2Gz2ul5X7JGFA=
+		dWvqDCAMuhkpJyslsQUvN7+yhDs=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		gE0MnM3PtqEaITiOd9umUEIojOw=
+		mZ+T4XVTwQwmPnnqFPrkf5j+DIc=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		0dxkz5oOSWtbTgS7osMFkEll3Pg=
+		IyOmpk20GzuAhB1nlF/Rfc8HwIk=
 		</data>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		1fW0G84ELivdlg2Gz2ul5X7JGFA=
+		dWvqDCAMuhkpJyslsQUvN7+yhDs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>PaymentViewController.nib/objects-13.0+.nib</key>
 		<data>
-		s+k/Sm7PdUE32gZumzz0tlP40io=
+		8X7OfSiYuHYkd77ta3bQXfeE5IE=
 		</data>
 		<key>PaymentViewController.nib/runtime.nib</key>
 		<data>
-		hFzT5TymX4ZgAxHqqyJyhb/tCeo=
+		G2iGGm6W6As1o/u8muct4zl76Jc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wH/hfJOzERh1WHSsRZ5j0e91XICDvmyS5aPI4YdS714=
+			4IeiU5h2UW9W9ruaoBX3sK/M8bmCPEhmFAAg4cJXVso=
 			</data>
 		</dict>
 		<key>Headers/BookeeyPaySDK.h</key>
@@ -81,56 +81,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yLQzZP18PB0tt3lC2vsMBCCNDbR6aB1wjn5sCyDdicU=
+			TfPnO/oYV9oHN1ciOCZJ9xadxjNbWPiITLDB+LKGFI4=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yLQzZP18PB0tt3lC2vsMBCCNDbR6aB1wjn5sCyDdicU=
+			TfPnO/oYV9oHN1ciOCZJ9xadxjNbWPiITLDB+LKGFI4=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2ZPIkDiY4szqypj4osufEgta3yVD2skUYUHjR6hj1M0=
+			ZCjTOsCbqtw2URPq8HrZockJDN65NNLx8/FPlnKi0t8=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			laf86AVhgN0EccpOuYP4TiV2u0WsYDwJVg/l2o1Rqow=
+			poTUlcZrZMA2bmkoHawRte/ai1klCXEgLnv+5QnOVNE=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3PjVOff4IHV/aeH99GOQRA2u9G9B6CVG2F31Qn19U78=
+			U64N+fhxZ3+IRMvCkpm4hSW67b/yGlvBqvyBTrYhRKg=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2ZPIkDiY4szqypj4osufEgta3yVD2skUYUHjR6hj1M0=
+			ZCjTOsCbqtw2URPq8HrZockJDN65NNLx8/FPlnKi0t8=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			laf86AVhgN0EccpOuYP4TiV2u0WsYDwJVg/l2o1Rqow=
+			poTUlcZrZMA2bmkoHawRte/ai1klCXEgLnv+5QnOVNE=
 			</data>
 		</dict>
 		<key>Modules/BookeeyPaySDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3PjVOff4IHV/aeH99GOQRA2u9G9B6CVG2F31Qn19U78=
+			U64N+fhxZ3+IRMvCkpm4hSW67b/yGlvBqvyBTrYhRKg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -144,14 +144,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zHGFzcVmGRZVtvitpf2r9HV/aGQrrXbH/AtMZJGPtKg=
+			Z9jaFyZL15vWfLrMTGaXQ5D2Or9MEh69CTgE2x0usvY=
 			</data>
 		</dict>
 		<key>PaymentViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8I3Y71A8E/elELzWJn8kM6x35BcJXdLWf2SL0OMzDGk=
+			BcJxB96muXeCQUZduIOeogdLGQNBoSt4Fj3u7BROV7A=
 			</data>
 		</dict>
 	</dict>
